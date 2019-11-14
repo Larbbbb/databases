@@ -9,7 +9,13 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {},
-    post: function (req, res) {}
+    post: function (req, res) {
+
+      res.writeHead(200, 'success');
+      models.users.post(req.body.username);
+      res.end();
+
+    }
   }
 };
 
