@@ -21,7 +21,7 @@ module.exports = {
 
       var sqlQuery = 'insert into messages(message_text, roomname, usernameID) values (?, ?, (select id from users where username = ?));';
 
-      db.connection.query(sqlQuery, [body.message, body.roomname, body.username], function (err, results) {
+      db.connection.query(sqlQuery, [body.text, body.roomname, body.username], function (err, results) {
         if (err) {
           throw err;
         } else {

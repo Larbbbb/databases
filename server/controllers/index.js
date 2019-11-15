@@ -11,6 +11,7 @@ module.exports = {
     post: function (req, res) {
 
       models.messages.post(req.body, function() {
+        console.log('hellooooo', req.body);
         res.writeHead(200, 'success');
       });
       res.end(req.body.message);
