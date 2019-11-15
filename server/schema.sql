@@ -1,3 +1,5 @@
+-- DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
@@ -9,11 +11,11 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE rooms (
-  id int not null auto_increment,
-  roomname text,
-  primary key(id)
-);
+-- CREATE TABLE rooms (
+--   id int not null auto_increment,
+--   roomname text,
+--   primary key(id)
+-- );
 
 
 CREATE TABLE friends (
@@ -27,11 +29,12 @@ CREATE TABLE friends (
 CREATE TABLE messages (
   id int not null auto_increment,
   message_text text,
+  roomname text,
   usernameID int,
-  roomnameID int,
+  createdAt timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   primary key(id),
-  foreign key(usernameID) references users(id),
-  foreign key(roomnameID) references rooms(id)
+  foreign key(usernameID) references users(id)
+  -- foreign key(roomnameID) references rooms(id)
 );
 
 /* Create other tables and define schemas for them here! */
